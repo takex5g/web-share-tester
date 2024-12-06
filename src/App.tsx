@@ -34,7 +34,7 @@ function App() {
       if (selectedOptions.image) {
         shareData.files = [
           new File(
-            [await fetch('/image.jpg').then((res) => res.blob())],
+            [await fetch('/web-share-tester/image.jpg').then((res) => res.blob())],
             'image.jpg',
             { type: 'image/jpeg' }
           ),
