@@ -70,7 +70,7 @@ function App() {
     <div className="App">
       <h1>Web Share API チェック</h1>
 
-      {canShare ? (
+      {/* {canShare ? ( */}
         <div>
           <h2>シェア内容を選択してください:</h2>
           <form>
@@ -107,9 +107,9 @@ function App() {
 
           <button onClick={handleShare}>シェア</button>
         </div>
-      ) : (
+      {/* ) : (
         <p>Web Share APIはサポートされていません</p>
-      )}
+      )} */}
     </div>
   );
 }
