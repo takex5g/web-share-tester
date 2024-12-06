@@ -78,7 +78,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1 className="title">Web Share API チェック</h1>
+      <h1 className="title">Web Share API テスター</h1>
 
       {!canShare && <p className="warning">Web Share APIはサポートされていません</p>}
 
