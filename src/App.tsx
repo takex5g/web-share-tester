@@ -48,7 +48,7 @@ function App() {
       }
 
       // Web Share APIを使ってシェア
-      if (navigator.canShare() && Object.keys(shareData).length > 0) {
+      if ( Object.keys(shareData).length > 0) {
         await navigator.share(shareData);
         window.alert('シェアしました');
       }
