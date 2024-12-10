@@ -17,11 +17,9 @@ function App() {
 
   useEffect(() => {
     // Web Share APIが利用可能かどうかをチェック
-    if (navigator.canShare()) {
+    if ('share' in navigator) {
       setCanShare(true);
     }
-    // Debug
-    setCanShare(true);
   }, []);
 
   const [imgFile, setImgFile] = useState<File | null>(null);
@@ -34,7 +32,6 @@ function App() {
     fetchImage();
   }, []);
 
-  // shareDataをuseMemoで管理
   const shareData = useMemo<ShareData>(() => {
     const data: ShareData = {};
 
@@ -43,7 +40,7 @@ function App() {
     }
 
     if (selectedOptions.url) {
-      data.url = window.location.href; // 現在のウェブサイトのURL
+      data.url = window.location.href; 
     }
 
     if (selectedOptions.image) {
