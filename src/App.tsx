@@ -43,7 +43,8 @@ function App() {
     }
 
     if (selectedOptions.url) {
-      data.url = window.location.href; // 現在のウェブサイトのURL
+      // data.url = window.location.href; // 現在のウェブサイトのURL
+      data.url = 'URLにテキストを入れるとどうなるんだろ';
     }
 
     if (selectedOptions.image) {
