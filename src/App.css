@@ -1,4 +1,8 @@
-/* 全体のレイアウト */
+
+body{
+  background-image: url('bg.png');
+  background-color: #f9f9f9;
+}
 .app-container {
   font-family: Arial, sans-serif;
   padding: 20px;
@@ -8,8 +12,9 @@
 }
 
 .title {
-  font-size: 2em;
   margin-bottom: 20px;
+  width: 100%;
+  max-width: 500px;
 }
 
 .warning {
@@ -39,18 +44,20 @@ label {
   margin-right: 10px;
 }
 
-.share-button {
-  background-color: #4CAF50;
-  color: white;
+.share-button {  
+  background-color: #ffe500;
+  color: #333;
+  font-weight: bold;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1.1em;
+  transition: background-color 0.3s;
 }
 
 .share-button:hover {
-  background-color: #45a049;
+  background-color: #ffde5a;
 }
 
 .share-data {

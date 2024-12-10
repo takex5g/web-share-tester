@@ -25,7 +25,9 @@ function App() {
   const [imgFile, setImgFile] = useState<File | null>(null);
   useEffect(() => {
     const fetchImage = async () => {
-      const blob = await fetch('/web-share-tester/image.jpg').then((res) => res.blob());
+      const blob = await fetch('/web-share-tester/image.jpg').then((res) =>
+        res.blob()
+      );
       const file = new File([blob], 'image.jpg', { type: 'image/jpeg' });
       setImgFile(file);
     };
@@ -40,14 +42,12 @@ function App() {
     }
 
     if (selectedOptions.url) {
-      data.url = window.location.href; 
+      data.url = window.location.href;
     }
 
     if (selectedOptions.image) {
       if (!imgFile) return data;
-      data.files = [
-        new File([imgFile], 'image.jpg', { type: 'image/jpeg' }),
-      ];
+      data.files = [new File([imgFile], 'image.jpg', { type: 'image/jpeg' })];
     }
 
     return data;
@@ -74,19 +74,23 @@ function App() {
   };
 
   return (
-    <div className="app-container">
-      <h1 className="title">Web Share API テスター</h1>
+    <div className='app-container'>
+      <h1>
+        <img src='title.png' alt='Web Share API テスター' className='title' />
+      </h1>
 
-      {!canShare && <p className="warning">Web Share APIはサポートされていません</p>}
+      {!canShare && (
+        <p className='warning'>Web Share APIはサポートされていません</p>
+      )}
 
       {canShare && (
-        <div className="content-container">
-          <h2 className="subtitle">シェア内容を選択してください:</h2>
-          <form className="options-form">
+        <div className='content-container'>
+          <h2 className='subtitle'>シェア内容を選択</h2>
+          <form className='options-form'>
             <label>
               <input
-                type="checkbox"
-                name="text"
+                type='checkbox'
+                name='text'
                 checked={selectedOptions.text}
                 onChange={handleCheckboxChange}
               />
@@ -95,8 +99,8 @@ function App() {
             <br />
             <label>
               <input
-                type="checkbox"
-                name="image"
+                type='checkbox'
+                name='image'
                 checked={selectedOptions.image}
                 onChange={handleCheckboxChange}
               />
@@ -105,8 +109,8 @@ function App() {
             <br />
             <label>
               <input
-                type="checkbox"
-                name="url"
+                type='checkbox'
+                name='url'
                 checked={selectedOptions.url}
                 onChange={handleCheckboxChange}
               />
@@ -114,16 +118,16 @@ function App() {
             </label>
           </form>
 
-          <button className="share-button" onClick={handleShare}>
+          <button className='share-button' onClick={handleShare}>
             シェア
           </button>
 
-          <div className="share-data">
+          <div className='share-data'>
             <h3>シェアデータ</h3>
-            <div className="share-data-content">
-            <p>テキスト: {shareData.text}</p>
-            <p>URL: {shareData.url}</p>
-            <p>ファイル: {shareData.files?.length}個</p>
+            <div className='share-data-content'>
+              <p>テキスト: {shareData.text}</p>
+              <p>URL: {shareData.url}</p>
+              <p>ファイル: {shareData.files?.length}個</p>
             </div>
           </div>
         </div>
